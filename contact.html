@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style2.css" />
+</head>
+<body >
+    <section id="contact">
+        <h1 class="h-primary">Contact Us</h1>
+        <div id="contact-box">
+          <form  onsubmit="sendEmail();reset();return false;"
+          >
+            <div class="form-box">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="Enter Your Name">
+            </div>
+    
+            <div class="form-box">
+              <label for="email">Email</label>
+              <input type="email" name="name" id="email" placeholder="Enter Your Email">
+            </div>
+            <div class="form-box">
+              <label for="phone">Phone no</label>
+              <input type="number" name="name" id="phone" placeholder="Enter Your Phone no">
+            </div>
+            <div class="form-box">
+              <label for="message">Drop Message</label>
+              <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            </div>
+    
+            <button class="btn">Submit Now</button>
+          <button class="btn" type="reset">Reset Now</button>
+      
+          </form>
+        </div>
+        
+      </section>
+      
+
+
+
+
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+             function sendEmail() {
+              Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "2006223@kiit.ac.in",
+                Password : "70A52CE0A9771A8DEEB52489D6C783508B20",
+                To : 'mannuaggarwal2020@gmail.com',
+                From : document.getElementById("email").value,
+                Subject : "New Enquiry from Movie Library",
+                Body : "Name:"+document.getElementById("name").value
+                      + "<br> Email:"+document.getElementById("email").value
+                      + "<br> Phone no:"+document.getElementById("phone").value
+                      + "<br> Message:"+document.getElementById("message").value
+               
+                 }).then(
+                 message => alert("Message sent successfully to developer") 
+             );
+             }
+        </script>
+</body>
+</html>
